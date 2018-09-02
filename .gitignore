@@ -1,0 +1,5 @@
+.pydevproject
+.project
+client_secrets.json
+*.pyc
+.vscode/*

@@ -7,8 +7,8 @@ import random
 driver = webdriver.Chrome()
 driver.get('https://web.whatsapp.com/')
 
-all_names = ['Yo', 'Juan Cavanagh', 'Mati Kleiner', 'Andy']
-# all_names = ['Yo']
+# all_names = ['Yo', 'Juan Cavanagh', 'Mati Kleiner', 'Andy']
+all_names = ['Achi']
 
 raw_input('Enter anything after scanning QR code')
 
@@ -37,6 +37,7 @@ def search_contact(name):
     
 def send_text(text):
     find_by_xpath_send_keys('//*[@id="main"]/footer/div[1]/div[2]/div/div[2]', text+Keys.ENTER)
+
 
 def send_image(image_path):
     find_by_xpath_click('//*[@id="main"]/header/div[3]/div/div[2]/div')
