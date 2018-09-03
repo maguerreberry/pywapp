@@ -8,17 +8,24 @@ driver = webdriver.Chrome()
 driver.get('https://web.whatsapp.com/')
 
 # all_names = ['Yo', 'Juan Cavanagh', 'Mati Kleiner', 'Andy']
-all_names = ['Achi']
+# all_names = ['Achi']
 
 raw_input('Enter anything after scanning QR code')
 
 def find_by_xpath_click(xpath):
+    timeout = 2
     while True:
+        if timeout == 0:
+            return 'timeout'
+        
         try:
             driver.find_element_by_xpath(xpath).click()
             break
         except:
             sleep(random.randrange(1,3))
+            timeout -= 1
+    
+    return 'ok'
 
 
 def find_by_xpath_send_keys(xpath, keys):
@@ -32,7 +39,10 @@ def find_by_xpath_send_keys(xpath, keys):
 
 def search_contact(name):
     find_by_xpath_send_keys('//*[@id="side"]/div[2]/div/label/input', name)
-    find_by_xpath_click('//span[@title = "'+name+'"]')
+   
+    status = find_by_xpath_click('//span[@title = "'+name+'"]')
+    if status == 'timeout':
+        raise Exception('Could not find contact: '+name)
 
     
 def send_text(text):
@@ -54,12 +64,24 @@ def send_image(image_path):
 
     find_by_xpath_click('//*[@id="app"]/div/div/div[1]/div[2]/span/div/span/div/div/div[2]/span[2]/div/div/span')
    
-    
-for name in all_names:
+
+def hl_send(name, text=None, image=None):
     search_contact(name)
-    send_text('holis')
-    send_text('https://m.youtube.com/watch?v=FpNPSuHhgfI')
-    send_image('C:\Users\matt_\Downloads\macri-dollar.jpg')
-    sleep(random.randrange(1,3))
+    print "Send to: "+name
+    
+    if text:
+        print "Text: "+text
+#         send_text(text)
+    
+    if image:
+        print "Image: "+image
+#         send_image(image)
+
+# for name in all_names:
+#     search_contact(name)
+#     send_text('holis')
+#     send_text('https://m.youtube.com/watch?v=FpNPSuHhgfI')
+#     send_image('C:\Users\matt_\Downloads\macri-dollar.jpg')
+#     sleep(random.randrange(1,3))
     
     
