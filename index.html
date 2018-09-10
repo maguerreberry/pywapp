@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>[GUI Tesis SDN]</title>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="images/onos-logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta http-equiv="refresh" content="10, url=./main.py" >-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="jumbotron text-center">
+    <h1>Gestor de Distribución de Contenido</h1>
+    <p>Proyecto Integrador - SDN</p>
+</div>
+
+<div class="container">
+    <div id="reload" class="row">
+        <div class="col-sm-3">
+            <h3>Hosts</h3>
+            <iframe height="200px" width="100%" name="iframe_a" src="hosts.html"></iframe>
+        </div>
+        <div class="col-sm-3">
+            <h3>Dispositivos</h3>
+            <iframe height="200px" width="100%" name="iframe_b" src="devices.html"></iframe>
+        </div>
+        <div class="col-sm-3">
+            <h3>Fuentes Habilitadas</h3>
+            <iframe height="200px" width="100%" name="iframe_d" src="ssm.html"></iframe>
+        </div>
+        <div class="col-sm-3">
+            <h3>Rutas Multicast</h3>
+            <iframe height="200px" width="100%" name="iframe_c" src="mcastroutes.html"></iframe>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-3">
+            <h3> Deshabilitar fuente </h3>
+            <form method="GET" action="./main.py">
+                <h5>Fuente: <input TYPE="text" NAME="del_source" class="btn btn-default" /></h5>
+                <h5>Grupo:  <input TYPE="text" NAME="del_group" class="btn btn-default" /></h5>
+                <input type="submit" class="btn btn-primary" value="Enviar">
+            </form>
+        </div>
+        <div class="col-sm-3">
+            <h3> Habilitar fuente </h3>
+            <form method="GET" action="./main.py">
+                <h5>Fuente: <input TYPE="text" NAME="new_source" class="btn btn-default" /></h5>
+                <h5>Grupo:  <input TYPE="text" NAME="new_group" class="btn btn-default" /></h5>
+                <input type="submit" class="btn btn-primary" value="Enviar">
+            </form>
+        </div>
+        <div class="col-sm-3">
+            <h3> Deshabilitar cliente </h3>
+            <form method="GET" action="./main.py">
+                <h5>Fuente: <input TYPE="text" NAME="dis_sink_source" class="btn btn-default" /></h5>
+                <h5>Grupo: <input TYPE="text" NAME="dis_sink_group" class="btn btn-default" /></h5>
+                <h5>Host:  <input TYPE="text" NAME="dis_sink_host" class="btn btn-default" /></h5>
+                <input type="submit" class="btn btn-primary" value="Enviar">
+            </form>
+        </div>
+        <div class="col-sm-3">
+            <h3> Habilitar cliente </h3>
+            <form method="GET" action="./main.py">
+                <h5>Fuente: <input TYPE="text" NAME="ena_sink_source" class="btn btn-default" /></h5>
+                <h5>Grupo:  <input TYPE="text" NAME="ena_sink_group" class="btn btn-default" /></h5>
+                <h5>Host:   <input TYPE="text" NAME="ena_sink_host" class="btn btn-default" /></h5>
+                <input type="submit" class="btn btn-primary" value="Enviar">
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

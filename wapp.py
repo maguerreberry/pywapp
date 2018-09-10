@@ -4,13 +4,15 @@ from time import sleep
 import autoit
 import random
 
-driver = webdriver.Chrome()
-driver.get('https://web.whatsapp.com/')
+def init_wapp():
+    driver = webdriver.Chrome()
+    driver.get('https://web.whatsapp.com/')
 
-# all_names = ['Yo', 'Juan Cavanagh', 'Mati Kleiner', 'Andy']
-# all_names = ['Achi']
+    # all_names = ['Yo', 'Juan Cavanagh', 'Mati Kleiner', 'Andy']
+    # all_names = ['Achi']
 
-raw_input('Enter anything after scanning QR code')
+    raw_input('Enter anything after scanning QR code')
+
 
 def find_by_xpath_click(xpath):
     timeout = 2
